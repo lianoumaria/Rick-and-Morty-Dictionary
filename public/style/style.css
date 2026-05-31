@@ -1,0 +1,29 @@
+.photo-background {
+    background-image: url("./images/homePageBackground.png");
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    gap: 10px;
+}
+
+.green-btn {
+    background-color: #88E23B;
+    color: black;
+}
+
+.black-background {
+    background-color: black;
+    color: white;
+}
+
+.green-font {
+    color:#88E23B;
+}
+
+.white-font {
+    columns: white;
+}
