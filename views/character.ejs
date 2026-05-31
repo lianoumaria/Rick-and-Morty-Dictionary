@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs") %>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3 border-5" style="width: 100%;">
+                            <div class="card-body black-background">
+                                <h4 class="card-title green-font">Special title treatment</h4>
+                                <form action="/" id="form" class="form" method="POST">
+                                    <select name="type" class="form-select">
+                                      <option value="" data-display="Select">Random type</option>
+                                      <option value="education">Education</option>
+                                      <option value="charity">Charity</option>
+                                      <option value="recreational">Recreational</option>
+                                      <option value="relaxation">Relaxation</option>
+                                      <option value="busywork">Busywork</option>
+                                      <option value="social">Social</option>
+                                      <option value="diy">DIY</option>
+                                      <option value="music">Music</option>
+                                    </select>
+                                    <select name="participants" class="form-select">
+                                      <option value="">Any number of people</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                    </select>
+                                    <button type="submit" class="form-submit green-btn btn">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                       <div class="card  black-background mb-3 border-5 border-white" style="max-width: 100%;">
+                          <div class="row g-0" style="justify-content: space-between;">
+                            <div class="col-4">
+                              <img src=<%= image %> class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-8">
+                              <div class="card-body">
+                                <h5 class="card-title green-font"><%= name %></h5>
+                                <p class="card-text">from: <%= origin %></p>
+                                <p class="card-text">last seen at: <%= location %></p>
+                                <p class="card-text">Is a <%= species %></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                 
+                    
+                </div>
+            </div>
+
+<%- include("partials/footer.ejs") %>
