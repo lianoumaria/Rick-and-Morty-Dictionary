@@ -1,5 +1,6 @@
 .photo-background {
     background-image: url("../images/homePageBackground.png");
+    background-repeat: repeat-y;
 }
 
 .flex-container {
