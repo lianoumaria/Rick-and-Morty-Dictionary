@@ -116,27 +116,33 @@ app.post("/location/filter", async (req, res) => {
 app.get("/location/:id", async (req, res) => {
     const locationId = req.params.id;
     console.log(locationId);
+    let residentsArray = [];
+    let charArray = [];
+
     try {
         const result1 = await axios.get(API_URL+`/location/${locationId}`);
-        /*
-        const residentsArray = [];
-        result.data.results.forEach(location => {
-            locationArray.push(new LocationPrint(location.id, location.name, location.type, location.dimension));
-        });
-        res.render("location.ejs", {
-            locations: locationArray
-        });
-        */
-       console.log(result1.data.residents);
+        residentsArray = result1.data.residents;
     } catch (error) {
-        console.log(error.response);
-        /*
         res.render("error.ejs", {
-            errorCode: error.response.status,
-            errorMessage: error.response.data.error
+            errorCode: error.response?.status || 500,
+            errorMessage: error.response?.data?.error || error.message
         });
-        */
+        return;
     }
+
+    for (const residentUrl of residentsArray) {
+        try {
+            const result = await axios.get(residentUrl);
+            const character = result.data;
+            charArray.push(new CharacterPrint(character.name, character.origin.name, character.location.name, character.species, character.image));
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    res.render("character.ejs", {
+        characters: charArray
+    });
 });
 
 //Make the server go live

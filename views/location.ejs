@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3 border-5" style="width: 100%;">
+                            <div class="card-body black-background">
+                                <h4 class="card-title green-font">Find your location</h4>
+                                <form action="/location/filter" id="form" class="form" method="POST">
+                                  <input type="text" class="form-control border-black" name="locationName" placeholder="What is the location's name?">
+                                  <input type="text" class="form-control border-black" name="locationType" placeholder="What is the type of the location?">
+                                  <input type="text" class="form-control border-black" name="locationDimension" placeholder="What is the dimension that the location belongs to?">
+                                  <button type="submit" class="form-submit green-btn btn">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <% locations.forEach(location => { %>
+                    <div class="col-md-3">
+                        <div class="card black-background mb-3 border-5 border-white" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title green-font"><%= location.name %></h5>
+                                <p class="card-text">The type of the location is: <br /><%= location.type %></p>
+                                <p class="card-text">And the dimension: <br /> <%= location.dimension %></p>
+                                <a href="/location/<%= location.id %>" class="card-link green-font">View residents</a>
+                            </div>
+                        </div>
+                    </div>
+                  <% }); %> 
+                </div>
+            </div>
+
+<%- include("partials/footer.ejs") %>
