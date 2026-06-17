@@ -7,7 +7,7 @@ This is a public API that does not require authentication and supports CORS.
 ### Installation
 Run 
 `npm i` 
-to install the needed dependencies
+to install the required dependencies
 
 ### Start the server
 Run
